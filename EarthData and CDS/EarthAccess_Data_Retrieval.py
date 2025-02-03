@@ -11,7 +11,6 @@ polygon = gpd.read_file(polygon)
 extent  = polygon.total_bounds
 
 output = os.path.join(main_dir,'EarthAccess_Output')
-
 try:
     os.makedirs(output)
 except:
@@ -19,7 +18,9 @@ except:
 
 # data to send to EA Request
 ea_product = 'ASTGTM' #this value is for ASTER v003
-# other codes can be searched here: https://lpdaac.usgs.gov/product_search
+# Other codes can be searched here: https://lpdaac.usgs.gov/product_search
+# As far as I know, there is no size limit for downloading files, or at 
+# least I haven't reached it yet haha.
 west = extent[0]
 south= extent[1]
 east = extent[2]
@@ -38,7 +39,7 @@ results = earthaccess.search_data(
     #temporal=(initial_time,final_time),
     count=10)
 
-
+# The goal behind this is to avoid mixed files
 today = datetime.date.today()
 local_out = ea_product + " " + str(today)
 local_out = os.path.join(output,local_out)
