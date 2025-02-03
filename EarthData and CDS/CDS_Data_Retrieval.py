@@ -27,7 +27,10 @@ except:
 # There is a limit of cells (horizontal x vertical x time) of 120000. If
 # you try to download a whole year at once, you can only do it if your spatial
 # extent is of 12 cells (horizontal x vertical) or less.
-# If your spatial extent is way too large,
+# In this case, I choose a monthly period, which allows me a spatial extent of
+# 160 cells (horizontal x vertical)
+# If your spatial extent is way too large, I heavily recommend you to
+# download your files on daily timesteps, it will take longer, of course.
 
 # data to send to CDS Request
 dataset = "reanalysis-era5-land"
