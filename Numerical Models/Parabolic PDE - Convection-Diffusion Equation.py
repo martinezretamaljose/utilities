@@ -26,7 +26,7 @@ x_upper = 1000
 critical_n_x = (A_factor*(x_upper - x_lower)/(2*B_factor)) - 1
 x_interval = int(divmod(critical_n_x, 1)[0]) + 1 
 dx = (x_upper-x_lower)/(x_interval+1)
-x_range = np.arange(x_lower+dx,x_upper,dx)
+x_range = np.linspace(x_lower+dx,x_upper-dx,x_interval)
 # Note: boundary values cannot be inside the x-range!
 
 # stability condition for t-range
@@ -85,5 +85,5 @@ for i in range(0,timesteps):
     if (tx == 0):
         plt.plot(x,y)
         plt.ylim(x_min,x_max)
-        plt.title('t='+str(np.round(current_time,3)))
+        plt.title('t= '+str(np.round(current_time,3)))
         plt.show()
